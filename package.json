@@ -1,0 +1,37 @@
+{
+  "author": "dat le",
+  "build": {
+    "appId": "lakul"
+  },
+  "main": "electron/electron.js",
+  "name": "lakul",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/jest": "24.0.13",
+    "@types/node": "12.0.3",
+    "@types/react": "16.8.19",
+    "@types/react-dom": "16.8.4",
+    "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
+    "electron": "^5.0.2",
+    "electron-builder": "^20.41.0",
+    "electron-is-dev": "^1.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "0.9.5",
+    "typescript": "3.5.1",
+    "wait-on": "^3.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test --env=jsdom",
+    "react-eject": "react-scripts eject",
+    "electron-build": "electron-builder",
+    "release": "npm react-build && electron-builder --publish=always",
+    "build": "npm react-build && npm electron-build",
+    "start": "concurrently \"cross-env BROWSER=none  react-scripts start\" \"wait-on http://localhost:3000 && electron .\""
+  }
+}
